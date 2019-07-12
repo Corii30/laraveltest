@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsuarioTable extends Migration
+class CreateLibroTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateUsuarioTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuario', function (Blueprint $table) {
+        Schema::create('libro', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre', 100);
-            $table->integer('documento');
-            $table->integer('telefono');
-            $table->integer('edad')->nullable();
-            $table->string('ubicacion', 50)->nullable();
-            $table->string('email', 200)->nullable();
+            $table->string('titulo',100);
+            $table->string('isbn',30);
+            $table->string('autor',100);
+            $table->unsignedTinyInteger('cantidad');
+            $table->string('editorial',50)->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateUsuarioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuario');
+        Schema::dropIfExists('libro');
     }
 }
