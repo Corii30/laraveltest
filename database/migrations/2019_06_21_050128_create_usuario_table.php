@@ -14,10 +14,10 @@ class CreateUsuarioTable extends Migration
     public function up()
     {
         Schema::create('usuario', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('nombre', 100);
             $table->integer('documento');
-            $table->integer('telefono');
+            $table->string('telefono',15);
             $table->integer('edad')->nullable();
             $table->string('ubicacion', 50)->nullable();
             $table->string('email', 200)->nullable();
