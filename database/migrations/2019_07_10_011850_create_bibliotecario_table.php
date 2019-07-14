@@ -14,10 +14,10 @@ class CreateBibliotecarioTable extends Migration
     public function up()
     {
         Schema::create('bibliotecario', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('nombre',50);
             $table->integer('documento');
-            $table->integer('telefono');
+            $table->string('telefono',15);
             $table->string('email', 200)->nullable();
             $table->timestamps();
         });
